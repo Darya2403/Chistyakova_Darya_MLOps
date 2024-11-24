@@ -1,9 +1,11 @@
+# Установка необходимых библиотек
 #pip install fastapi uvicorn
 #pip install jinja2
 #pip install aiofiles
 #pip install python-multipart
 #pip install pymongo
 
+# Запуск сервера Uvicorn с автоматической перезагрузкой при изменении кода
 #uvicorn main:app --reload
 
 
@@ -14,35 +16,26 @@ from database import db
 from db_models import RequestLog
 from models import dummy_model
 import logging
-from functools import wraps
-import asyncio
 
 # Настройка логгера
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-app = FastAPI()
+app = FastAPI()  # Создание экземпляра FastAPI
 
-templates = Jinja2Templates(directory="templates")
-
-@app.on_event("startup")
-async def startup_event():
-    # Принудительная запись в базу данных при старте приложения
-    test_log_entry = RequestLog(method="GET", url="/start")
-    result = db.request_logs.insert_one(test_log_entry.to_dict())
-    logger.info(f"Inserted test log entry: {test_log_entry.to_dict()}, Result: {result.inserted_id}")
+templates = Jinja2Templates(directory="templates")  # Настройка шаблонов Jinja2
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
-    logger.info("Receive")
-    data = {}
-    # Запись в MongoDB прямо в методе
+    data = {}  # Инициализация пустого словаря для данных
+    # Запись лога в MongoDB
     log_entry = RequestLog(
-        method=request.method,
-        url=str(request.url),
-        data = data
+        method=request.method,  # Метод запроса
+        url=str(request.url),  # URL запроса
+        ip=str(request.client.host),  # IP-адрес клиента
+        data=data  # Данные запроса
     )
-    result = db.request_logs.insert_one(log_entry.to_dict())
+    result = db.request_logs.insert_one(log_entry.to_dict())  # Вставка записи в MongoDB
     logger.info(f"Logged GET request to MongoDB: {log_entry.to_dict()} - Inserted ID: {result.inserted_id}")
 
     return templates.TemplateResponse("index.html", {"request": request, "data": data})
@@ -50,24 +43,23 @@ async def read_root(request: Request):
 @app.post("/predict", response_class=HTMLResponse)
 async def predict(
     request: Request,
-    Gender: str = Form(...),
-    Age: int = Form(None),
-    Height: float = Form(...),
-    Weight: float = Form(...),
-    FHWO: int = Form(...),
-    FAVC: int = Form(...),
-    FCVC: int = Form(None),
-    NCP: float = Form(None),
-    CAEC: str = Form(...),
-    SMOKE: int = Form(...),
-    CH2O: float = Form(None),
-    SCC: int = Form(...),
-    FAF: float = Form(None),
-    TUE: int = Form(None),
-    CALC: str = Form(...),
-    MTRANS: str = Form(...)
+    Gender: str = Form(...),  # Пол
+    Age: int = Form(None),  # Возраст
+    Height: float = Form(...),  # Рост
+    Weight: float = Form(...),  # Вес
+    FHWO: int = Form(...),  # Страдает ли кто-то из членов семьи избыточным весом
+    FAVC: int = Form(...),  # Часто ли вы едите высококалорийную пищу
+    FCVC: int = Form(None),  # Как часто вы едите овощи во время еды
+    NCP: float = Form(None),  # Сколько основных приемов пищи у вас в день
+    CAEC: str = Form(...),  # Едите ли вы между основными приемами пищи
+    SMOKE: int = Form(...),  # Вы курите
+    CH2O: float = Form(None),  # Сколько литров воды вы пьете ежедневно
+    SCC: int = Form(...),  # Следите ли вы за потреблением калорий
+    FAF: float = Form(None),  # Как часто вы занимаете физической активностью
+    TUE: int = Form(None),  # Как много времени вы проводите за технологическими устройствами
+    CALC: str = Form(...),  # Как часто вы употребляете алкоголь
+    MTRANS: str = Form(...)  # Каким транспортом вы обычно пользуетесь
 ):
-    logger.info("Receive POST!!!!!!")
     data = {
         "Gender": Gender,
         "Age": Age,
@@ -87,16 +79,17 @@ async def predict(
         "MTRANS": MTRANS
     }
 
-    # Запись в MongoDB прямо в методе
+    # Запись лога в MongoDB
     log_entry = RequestLog(
-        method=request.method,
-        url=str(request.url),
-        data = data
+        method=request.method,  # Метод запроса
+        url=str(request.url),  # URL запроса
+        ip=str(request.client.host),  # IP-адрес клиента
+        data=data  # Данные запроса
     )
 
-    result = db.request_logs.insert_one(log_entry.to_dict())
+    result = db.request_logs.insert_one(log_entry.to_dict())  # Вставка записи в MongoDB
     logger.info(f"Logged POST request to MongoDB: {log_entry.to_dict()} - Inserted ID: {result.inserted_id}")
 
-    # Здесь предполагается, что dummy_model возвращает какую-то строку или прогноз
+    # Здесь предполагается, что dummy_model возвращает какой-то прогноз
     prediction = dummy_model(data)
     return templates.TemplateResponse("index.html", {"request": request, "data": data, "prediction": prediction})
