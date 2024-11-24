@@ -3,49 +3,62 @@
 <head>
     <title>Прогнозирование степени ожирения</title>
     <style>
+        /* Стили для всего документа */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif; /* Шрифт для всего тела документа */
+            background-color: #f4f4f4; /* Цвет фона */
+            margin: 0; /* Убираем отступы */
+            padding: 0; /* Убираем внутренние отступы */
         }
+        /* Стили для контейнера */
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            max-width: 800px; /* Максимальная ширина контейнера */
+            margin: 0 auto; /* Центрирование контейнера */
+            padding: 20px; /* Внутренние отступы */
+            background-color: #fff; /* Цвет фона контейнера */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень контейнера */
+            border-radius: 8px; /* Скругление углов контейнера */
         }
+        /* Стили для заголовков */
         h1 {
-            text-align: center;
-            color: #333;
+            text-align: center; /* Центрирование текста */
+            color: #333; /* Цвет текста */
         }
+        h2 {
+            text-align: center; /* Центрирование текста */
+            color: #333; /* Цвет текста */
+            font-size: 20px; /* Размер шрифта */
+        }
+        /* Стили для формы */
         form {
-            display: flex;
-            flex-direction: column;
+            display: flex; /* Флексбокс для расположения элементов */
+            flex-direction: column; /* Вертикальное расположение элементов */
         }
+        /* Стили для меток */
         label {
-            margin-top: 10px;
-            font-weight: bold;
+            margin-top: 10px; /* Отступ сверху */
+            font-weight: bold; /* Жирный шрифт */
         }
+        /* Стили для выпадающих списков и числовых полей */
         select, input[type="number"] {
-            margin-top: 5px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
+            margin-top: 5px; /* Отступ сверху */
+            padding: 10px; /* Внутренние отступы */
+            border: 1px solid #ccc; /* Граница */
+            border-radius: 4px; /* Скругление углов */
+            font-size: 16px; /* Размер шрифта */
         }
+        /* Стили для кнопки отправки */
         input[type="submit"] {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
+            margin-top: 20px; /* Отступ сверху */
+            padding: 10px 20px; /* Внутренние отступы */
+            background-color: #4CAF50; /* Цвет фона */
+            color: white; /* Цвет текста */
+            border: none; /* Убираем границу */
+            border-radius: 4px; /* Скругление углов */
+            font-size: 16px; /* Размер шрифта */
+            cursor: pointer; /* Курсор при наведении */
         }
+        /* Стили для кнопки отправки при наведении */
         input[type="submit"]:hover {
             background-color: #45a049;
         }
@@ -54,34 +67,42 @@
 <body>
     <div class="container">
         <h1>Прогнозирование степени ожирения</h1>
+        <!-- Форма для ввода данных -->
         <form action="/predict" method="post">
+            <!-- Поле для выбора пола -->
             <label for="Gender">Пол:</label>
             <select name="Gender" id="Gender">
                 <option value="Male" {% if data.Gender == 'male' %}selected{% endif %}>Мужской</option>
                 <option value="Female" {% if data.Gender == 'female' %}selected{% endif %}>Женский</option>
             </select>
 
+            <!-- Поле для ввода возраста -->
             <label for="Age">Возраст:</label>
             <input type="number" name="Age" id="Age" min="0" max="100" step="1" required value="{{ data.Age }}">
 
+            <!-- Поле для ввода роста -->
             <label for="Height">Рост (в метрах):</label>
             <input type="number" name="Height" id="Height" min="0" max="2.5" step="0.01" required value="{{ data.Height }}">
 
+            <!-- Поле для ввода веса -->
             <label for="Weight">Вес (кг):</label>
             <input type="number" name="Weight" id="Weight" min="20" max="300" step="0.01" required value="{{ data.Weight }}">
 
+            <!-- Поле для выбора наличия избыточного веса у членов семьи -->
             <label for="FHWO">Страдает ли кто-то из членов семьи избыточным весом?</label>
             <select name="FHWO" id="FHWO">
                 <option value="1" {% if data.FHWO == 1 %}selected{% endif %}>Да</option>
                 <option value="0" {% if data.FHWO == 0 %}selected{% endif %}>Нет</option>
             </select>
 
+            <!-- Поле для выбора частоты употребления высококалорийной пищи -->
             <label for="FAVC">Часто ли вы едите высококалорийную пищу?</label>
             <select name="FAVC" id="FAVC">
                 <option value="1" {% if data.FAVC == 1 %}selected{% endif %}>Да</option>
                 <option value="0" {% if data.FAVC == 0 %}selected{% endif %}>Нет</option>
             </select>
 
+            <!-- Поле для выбора частоты употребления овощей -->
             <label for="FCVC">Как часто вы едите овощи во время еды?</label>
             <select name="FCVC" id="FCVC">
                 <option value="3" {% if data.FCVC == 3 %}selected{% endif %}>Часто</option>
@@ -89,6 +110,7 @@
                 <option value="1" {% if data.FCVC == 1 %}selected{% endif %}>Редко</option>
             </select>
 
+            <!-- Поле для выбора количества основных приемов пищи -->
             <label for="NCP">Сколько основных приемов пищи у вас в день?</label>
             <select name="NCP" id="NCP">
                 <option value="4" {% if data.NCP == 4 %}selected{% endif %}>4 и более</option>
@@ -97,6 +119,7 @@
                 <option value="1" {% if data.NCP == 1 %}selected{% endif %}>1</option>
             </select>
 
+            <!-- Поле для выбора частоты перекусов между основными приемами пищи -->
             <label for="CAEC">Едите ли вы между основными приемами пищи?</label>
             <select name="CAEC" id="CAEC">
                 <option value="no" {% if data.CAEC == 'no' %}selected{% endif %}>Нет</option>
@@ -105,12 +128,14 @@
                 <option value="Always" {% if data.CAEC == 'Always' %}selected{% endif %}>Постоянно</option>
             </select>
 
+            <!-- Поле для выбора курения -->
             <label for="SMOKE">Вы курите?</label>
             <select name="SMOKE" id="SMOKE">
                 <option value="1" {% if data.SMOKE == 1 %}selected{% endif %}>Да</option>
                 <option value="0" {% if data.SMOKE == 0 %}selected{% endif %}>Нет</option>
             </select>
 
+            <!-- Поле для выбора количества выпиваемой воды -->
             <label for="CH2O">Сколько литров воды вы пьете ежедневно?</label>
             <select name="CH2O" id="CH2O">
                 <option value="1" {% if data.CH2O == 1 %}selected{% endif %}>Около 1 л</option>
@@ -118,12 +143,14 @@
                 <option value="3" {% if data.CH2O == 3 %}selected{% endif %}>Около 3 л</option>
             </select>
 
+            <!-- Поле для выбора слежения за потреблением калорий -->
             <label for="SCC">Следите ли вы за потреблением калорий?</label>
             <select name="SCC" id="SCC">
                 <option value="1" {% if data.SCC == 1 %}selected{% endif %}>Да</option>
                 <option value="0" {% if data.SCC == 0 %}selected{% endif %}>Нет</option>
             </select>
 
+            <!-- Поле для выбора частоты физической активности -->
             <label for="FAF">Как часто вы занимаете физической активностью?</label>
             <select name="FAF" id="FAF">
                 <option value="0" {% if data.FAF == 0 %}selected{% endif %}>Не занимаюсь</option>
@@ -132,6 +159,7 @@
                 <option value="3" {% if data.FAF == 3 %}selected{% endif %}>Ежедневно</option>
             </select>
 
+            <!-- Поле для выбора времени, проводимого за технологическими устройствами -->
             <label for="TUE">Как много времени вы проводите за технологическими устройствами?</label>
             <select name="TUE" id="TUE">
                 <option value="0" {% if data.TUE == 0 %}selected{% endif %}>Менее 6 часов в день</option>
@@ -139,6 +167,7 @@
                 <option value="2" {% if data.TUE == 2 %}selected{% endif %}>Более 10 часов в день</option>
             </select>
 
+            <!-- Поле для выбора частоты употребления алкоголя -->
             <label for="CALC">Как часто вы употребляете алкоголь?</label>
             <select name="CALC" id="CALC">
                 <option value="no" {% if data.CALC == 'no' %}selected{% endif %}>Не употребляю</option>
@@ -147,6 +176,7 @@
                 <option value="Always" {% if data.CALC == 'Always' %}selected{% endif %}>Постоянно</option>
             </select>
 
+            <!-- Поле для выбора транспорта -->
             <label for="MTRANS">Каким транспортом вы обычно пользуетесь?</label>
             <select name="MTRANS" id="MTRANS">
                 <option value="Automobile" {% if data.MTRANS == 'Automobile' %}selected{% endif %}>Автомобиль</option>
@@ -156,15 +186,18 @@
                 <option value="Walking" {% if data.MTRANS == 'Walking' %}selected{% endif %}>Хожу пешком</option>
             </select>
 
+            <!-- Кнопка отправки формы -->
             <input type="submit" value="Прогнозируемое состояние">
         </form>
 
+        <!-- Отображение результата прогноза -->
         {% if prediction %}
-            <h2 id="result">Прогнозируемое состояние: {{ prediction }}</h2>
+            <h2 id="result">{{ prediction }}</h2>
         {% endif %}
 
     </div>
     <script>
+        /* Скрипт для автоматического скролла к результату */
         document.addEventListener('DOMContentLoaded', function() {
             const resultElement = document.getElementById('result');
             if (resultElement) {
