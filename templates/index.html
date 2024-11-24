@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Прогнозирование степени ожирения</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        select, input[type="number"] {
+            margin-top: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Прогнозирование степени ожирения</h1>
+        <form action="/predict" method="post">
+            <label for="Gender">Пол:</label>
+            <select name="Gender" id="Gender">
+                <option value="Male" {% if data.Gender == 'male' %}selected{% endif %}>Мужской</option>
+                <option value="Female" {% if data.Gender == 'female' %}selected{% endif %}>Женский</option>
+            </select>
+
+            <label for="Age">Возраст:</label>
+            <input type="number" name="Age" id="Age" min="0" max="100" step="1" required value="{{ data.Age }}">
+
+            <label for="Height">Рост (в метрах):</label>
+            <input type="number" name="Height" id="Height" min="0" max="2.5" step="0.01" required value="{{ data.Height }}">
+
+            <label for="Weight">Вес (кг):</label>
+            <input type="number" name="Weight" id="Weight" min="20" max="300" step="0.01" required value="{{ data.Weight }}">
+
+            <label for="FHWO">Страдает ли кто-то из членов семьи избыточным весом?</label>
+            <select name="FHWO" id="FHWO">
+                <option value="1" {% if data.FHWO == 1 %}selected{% endif %}>Да</option>
+                <option value="0" {% if data.FHWO == 0 %}selected{% endif %}>Нет</option>
+            </select>
+
+            <label for="FAVC">Часто ли вы едите высококалорийную пищу?</label>
+            <select name="FAVC" id="FAVC">
+                <option value="1" {% if data.FAVC == 1 %}selected{% endif %}>Да</option>
+                <option value="0" {% if data.FAVC == 0 %}selected{% endif %}>Нет</option>
+            </select>
+
+            <label for="FCVC">Как часто вы едите овощи во время еды?</label>
+            <select name="FCVC" id="FCVC">
+                <option value="3" {% if data.FCVC == 3 %}selected{% endif %}>Часто</option>
+                <option value="2" {% if data.FCVC == 2 %}selected{% endif %}>Иногда</option>
+                <option value="1" {% if data.FCVC == 1 %}selected{% endif %}>Редко</option>
+            </select>
+
+            <label for="NCP">Сколько основных приемов пищи у вас в день?</label>
+            <select name="NCP" id="NCP">
+                <option value="4" {% if data.NCP == 4 %}selected{% endif %}>4 и более</option>
+                <option value="3" {% if data.NCP == 3 %}selected{% endif %}>3</option>
+                <option value="2" {% if data.NCP == 2 %}selected{% endif %}>2</option>
+                <option value="1" {% if data.NCP == 1 %}selected{% endif %}>1</option>
+            </select>
+
+            <label for="CAEC">Едите ли вы между основными приемами пищи?</label>
+            <select name="CAEC" id="CAEC">
+                <option value="no" {% if data.CAEC == 'no' %}selected{% endif %}>Нет</option>
+                <option value="Sometimes" {% if data.CAEC == 'Sometimes' %}selected{% endif %}>Иногда</option>
+                <option value="Frequently" {% if data.CAEC == 'Frequently' %}selected{% endif %}>Часто</option>
+                <option value="Always" {% if data.CAEC == 'Always' %}selected{% endif %}>Постоянно</option>
+            </select>
+
+            <label for="SMOKE">Вы курите?</label>
+            <select name="SMOKE" id="SMOKE">
+                <option value="1" {% if data.SMOKE == 1 %}selected{% endif %}>Да</option>
+                <option value="0" {% if data.SMOKE == 0 %}selected{% endif %}>Нет</option>
+            </select>
+
+            <label for="CH2O">Сколько литров воды вы пьете ежедневно?</label>
+            <select name="CH2O" id="CH2O">
+                <option value="1" {% if data.CH2O == 1 %}selected{% endif %}>Около 1 л</option>
+                <option value="2" {% if data.CH2O == 2 %}selected{% endif %}>Около 2 л</option>
+                <option value="3" {% if data.CH2O == 3 %}selected{% endif %}>Около 3 л</option>
+            </select>
+
+            <label for="SCC">Следите ли вы за потреблением калорий?</label>
+            <select name="SCC" id="SCC">
+                <option value="1" {% if data.SCC == 1 %}selected{% endif %}>Да</option>
+                <option value="0" {% if data.SCC == 0 %}selected{% endif %}>Нет</option>
+            </select>
+
+            <label for="FAF">Как часто вы занимаете физической активностью?</label>
+            <select name="FAF" id="FAF">
+                <option value="0" {% if data.FAF == 0 %}selected{% endif %}>Не занимаюсь</option>
+                <option value="1" {% if data.FAF == 1 %}selected{% endif %}>1 раз в неделю</option>
+                <option value="2" {% if data.FAF == 2 %}selected{% endif %}>Несколько раз в неделю</option>
+                <option value="3" {% if data.FAF == 3 %}selected{% endif %}>Ежедневно</option>
+            </select>
+
+            <label for="TUE">Как много времени вы проводите за технологическими устройствами?</label>
+            <select name="TUE" id="TUE">
+                <option value="0" {% if data.TUE == 0 %}selected{% endif %}>Менее 6 часов в день</option>
+                <option value="1" {% if data.TUE == 1 %}selected{% endif %}>От 6 до 10 часов в день</option>
+                <option value="2" {% if data.TUE == 2 %}selected{% endif %}>Более 10 часов в день</option>
+            </select>
+
+            <label for="CALC">Как часто вы употребляете алкоголь?</label>
+            <select name="CALC" id="CALC">
+                <option value="no" {% if data.CALC == 'no' %}selected{% endif %}>Не употребляю</option>
+                <option value="Sometimes" {% if data.CALC == 'Sometimes' %}selected{% endif %}>Иногда</option>
+                <option value="Frequently" {% if data.CALC == 'Frequently' %}selected{% endif %}>Часто</option>
+                <option value="Always" {% if data.CALC == 'Always' %}selected{% endif %}>Постоянно</option>
+            </select>
+
+            <label for="MTRANS">Каким транспортом вы обычно пользуетесь?</label>
+            <select name="MTRANS" id="MTRANS">
+                <option value="Automobile" {% if data.MTRANS == 'Automobile' %}selected{% endif %}>Автомобиль</option>
+                <option value="Motorbike" {% if data.MTRANS == 'Motorbike' %}selected{% endif %}>Мотоцикл</option>
+                <option value="Bike" {% if data.MTRANS == 'Bike' %}selected{% endif %}>Велосипед</option>
+                <option value="Public_Transportation" {% if data.MTRANS == 'Public_Transportation' %}selected{% endif %}>Общественный транспорт</option>
+                <option value="Walking" {% if data.MTRANS == 'Walking' %}selected{% endif %}>Хожу пешком</option>
+            </select>
+
+            <input type="submit" value="Прогнозируемое состояние">
+        </form>
+
+        {% if prediction %}
+            <h2 id="result">Прогнозируемое состояние: {{ prediction }}</h2>
+        {% endif %}
+
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const resultElement = document.getElementById('result');
+            if (resultElement) {
+                resultElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
