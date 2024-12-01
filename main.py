@@ -93,7 +93,7 @@ async def predict(
 
     # Здесь предполагается, что dummy_model возвращает какой-то прогноз
     data_before = data
-    print('data before: ', data)
+    print('data before: ', data_before)
     prediction = predict_obesity(data)
     print('data after: ', data_before)
     print(predict)
