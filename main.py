@@ -92,7 +92,9 @@ async def predict(
     logger.info(f"Logged POST request to MongoDB: {log_entry.to_dict()} - Inserted ID: {result.inserted_id}")
 
     # Здесь предполагается, что dummy_model возвращает какой-то прогноз
+    data_before = data
+    print('data before: ', data)
     prediction = predict_obesity(data)
-    print(data)
+    print('data after: ', data_before)
     print(predict)
-    return templates.TemplateResponse("index.html", {"request": request, "data": data, "prediction": prediction})
+    return templates.TemplateResponse("index.html", {"request": request, "data": data_before, "prediction": prediction})
