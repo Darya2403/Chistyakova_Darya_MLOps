@@ -14,31 +14,30 @@ print(cat_le_dict)
 target_le = joblib.load('training_models/target_label_encoder.pkl')
 
 def predict_obesity(data):
-    data_new = data
     # Преобразуем категориальные признаки
     label_cols = ['CALC', 'CAEC', 'MTRANS']
     for col in label_cols:
         encoder = cat_le_dict.get(col)
-        data_new[col] = encoder.transform([str(data_new[col])])[0]
+        data[col] = encoder.transform([str(data[col])])[0]
 
     # Преобразуем данные в pandas DataFrame, чтобы передать с именами признаков
     features = pd.DataFrame([{
-        'Age': data_new['Age'],
-        'Gender': data_new['Gender'],
-        'Height': data_new['Height'],
-        'Weight': data_new['Weight'],
-        'CALC': data_new['CALC'],
-        'FAVC': data_new['FAVC'],
-        'FCVC': data_new['FCVC'],
-        'NCP': data_new['NCP'],
-        'SCC': data_new['SCC'],
-        'SMOKE': data_new['SMOKE'],
-        'CH2O': data_new['CH2O'],
-        'family_history_with_overweight': data_new['FHWO'],
-        'FAF': data_new['FAF'],
-        'TUE': data_new['TUE'],
-        'CAEC': data_new['CAEC'],
-        'MTRANS': data_new['MTRANS']
+        'Age': data['Age'],
+        'Gender': data['Gender'],
+        'Height': data['Height'],
+        'Weight': data['Weight'],
+        'CALC': data['CALC'],
+        'FAVC': data['FAVC'],
+        'FCVC': data['FCVC'],
+        'NCP': data['NCP'],
+        'SCC': data['SCC'],
+        'SMOKE': data['SMOKE'],
+        'CH2O': data['CH2O'],
+        'family_history_with_overweight': data['FHWO'],
+        'FAF': data['FAF'],
+        'TUE': data['TUE'],
+        'CAEC': data['CAEC'],
+        'MTRANS': data['MTRANS']
     }])
 
     # Предсказание
