@@ -93,4 +93,6 @@ async def predict(
 
     # Здесь предполагается, что dummy_model возвращает какой-то прогноз
     prediction = predict_obesity(data)
+    print(data)
+    print(predict)
     return templates.TemplateResponse("index.html", {"request": request, "data": data, "prediction": prediction})
