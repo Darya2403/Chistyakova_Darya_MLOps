@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8400a50-a85b-478c-ac7a-aeccb37e87cb" name="Changes" comment="fix commit">
-      <change beforePath="$PROJECT_DIR$/.idea/Chistyakova_Darya_MLOps.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Chistyakova_Darya_MLOps.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="f8400a50-a85b-478c-ac7a-aeccb37e87cb" name="Changes" comment="adding model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/training_models/random_forest_model.pkl" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +61,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-48aec45f0201-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.17011.127" />
+        <option value="bundled-python-sdk-babbdf50b680-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.15989.155" />
       </set>
     </attachedChunks>
   </component>
@@ -91,7 +90,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733063982271</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="adding model">
+      <option name="closed" value="true" />
+      <created>1733071703036</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733071703036</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -118,6 +125,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="start" />
     <MESSAGE value="adding training (from Colab)" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding training (from Colab)" />
+    <MESSAGE value="adding model" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding model" />
   </component>
 </project>
