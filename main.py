@@ -43,7 +43,7 @@ async def read_root(request: Request):
 @app.post("/predict", response_class=HTMLResponse)
 async def predict(
     request: Request,
-    Gender: str = Form(...),  # Пол
+    Gender: int = Form(None),  # Пол
     Age: int = Form(None),  # Возраст
     Height: float = Form(...),  # Рост
     Weight: float = Form(...),  # Вес
