@@ -16,6 +16,7 @@ from database import db
 from db_models import RequestLog
 from models import predict_obesity
 import logging
+import copy
 
 
 # Настройка логгера
@@ -92,7 +93,7 @@ async def predict(
     logger.info(f"Logged POST request to MongoDB: {log_entry.to_dict()} - Inserted ID: {result.inserted_id}")
 
     # Здесь предполагается, что dummy_model возвращает какой-то прогноз
-    data_before = data
+    data_before = copy.deepcopy(data)
     print('data before: ', data)
     prediction = predict_obesity(data)
     print('data after: ', data_before)
