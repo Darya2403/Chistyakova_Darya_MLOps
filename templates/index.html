@@ -72,8 +72,8 @@
             <!-- Поле для выбора пола -->
             <label for="Gender">Пол:</label>
             <select name="Gender" id="Gender">
-                <option value="Male" {% if data.Gender == 'male' %}selected{% endif %}>Мужской</option>
-                <option value="Female" {% if data.Gender == 'female' %}selected{% endif %}>Женский</option>
+                <option value="1" {% if data.Gender == 1 %}selected{% endif %}>Мужской</option>
+                <option value="0" {% if data.Gender == 0 %}selected{% endif %}>Женский</option>
             </select>
 
             <!-- Поле для ввода возраста -->

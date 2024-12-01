@@ -14,8 +14,9 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from database import db
 from db_models import RequestLog
-from models import dummy_model
+from models import predict_obesity
 import logging
+
 
 # Настройка логгера
 logging.basicConfig(level=logging.INFO)
@@ -43,7 +44,7 @@ async def read_root(request: Request):
 @app.post("/predict", response_class=HTMLResponse)
 async def predict(
     request: Request,
-    Gender: str = Form(...),  # Пол
+    Gender: int = Form(None),  # Пол
     Age: int = Form(None),  # Возраст
     Height: float = Form(...),  # Рост
     Weight: float = Form(...),  # Вес
@@ -91,5 +92,5 @@ async def predict(
     logger.info(f"Logged POST request to MongoDB: {log_entry.to_dict()} - Inserted ID: {result.inserted_id}")
 
     # Здесь предполагается, что dummy_model возвращает какой-то прогноз
-    prediction = dummy_model(data)
+    prediction = predict_obesity(data)
     return templates.TemplateResponse("index.html", {"request": request, "data": data, "prediction": prediction})
