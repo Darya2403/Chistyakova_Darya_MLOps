@@ -85,12 +85,8 @@ async def predict(
     log_entry = RequestLog(
         method=request.method,  # Метод запроса
         url=str(request.url),  # URL запроса
-        ip=str(request.client.host),  # IP-адрес клиента
-        data=data  # Данные запроса
+        ip=str(request.client.host)  # IP-адрес клиента
     )
-
-    result = db.request_logs.insert_one(log_entry.to_dict())  # Вставка записи в MongoDB
-    logger.info(f"Logged POST request to MongoDB: {log_entry.to_dict()} - Inserted ID: {result.inserted_id}")
 
     # Здесь предполагается, что dummy_model возвращает какой-то прогноз
     data_before = copy.deepcopy(data)
@@ -98,4 +94,8 @@ async def predict(
     prediction = predict_obesity(data)
     print('data after: ', data_before)
     print(predict)
+    log_entry.prediction = prediction  # Добавляем поле с предсказанием в лог
+    result = db.request_logs.insert_one(log_entry.to_dict())  # Вставка записи в MongoDB
+    logger.info(f"Logged POST request with prediction to MongoDB: {log_entry.to_dict()} - Inserted ID: {result.inserted_id}")
+
     return templates.TemplateResponse("index.html", {"request": request, "data": data_before, "prediction": prediction})

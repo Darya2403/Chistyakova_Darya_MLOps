@@ -2,13 +2,14 @@ from datetime import datetime
 from typing import Optional
 
 class RequestLog:
-    def __init__(self, method: str, url: str, ip:str, data: Optional[dict] = None):
+    def __init__(self, method: str, url: str, ip:str, data: Optional[dict] = None, prediction = None):
         # Инициализация объекта RequestLog
         self.method = method
         self.url = url
         self.ip = ip
         self.timestamp = datetime.utcnow()
         self.data = data if data else {}
+        self.prediction = prediction
 
     def to_dict(self):
         # Преобразование объекта RequestLog в словарь.
@@ -17,5 +18,7 @@ class RequestLog:
             "url": self.url,
             "ip": self.ip,
             "timestamp": self.timestamp,
-            "data": self.data
+            "data": self.data,
+            "prediction": self.prediction
+
         }
