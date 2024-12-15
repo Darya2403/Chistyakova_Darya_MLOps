@@ -71,7 +71,9 @@ def predict_obesity_wrapper(data):
     # Преобразуем категориальные признаки
     label_cols = ['CALC', 'CAEC', 'MTRANS']
     for col in label_cols:
-        data[col] = cat_le_dict[col][data[col]]
+        le = LabelEncoder()
+        le.classes_ = np.array(cat_le_dict[col])
+        data[col] = le.transform([data[col]])[0]
 
     # Загрузка структуры дерева из файла
     tree_structure = load_tree_structure('training_models/tree_structure.txt')
