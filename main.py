@@ -93,12 +93,12 @@ async def predict(
         raise HTTPException(status_code=response.status_code, detail=response.text)
 
     # Запись лога в MongoDB
-    log_entry = RequestLog(
-        method=request.method,  # Метод запроса
-        url=str(request.url),  # URL запроса
-        ip=str(request.client.host),  # IP-адрес клиента
-        data=data_before  # Данные запроса
-    )
+    # log_entry = RequestLog(
+    #     method=request.method,  # Метод запроса
+    #     url=str(request.url),  # URL запроса
+    #     ip=str(request.client.host),  # IP-адрес клиента
+    #     data=data_before  # Данные запроса
+    # )
 
     #log_entry.prediction = prediction  # Добавляем поле с предсказанием в лог
     #result = db.request_logs.insert_one(log_entry.to_dict())  # Вставка записи в MongoDB
@@ -120,6 +120,7 @@ async def feedback(
     }
     response = requests.post("http://localhost:8001/feedback", json=feedback_data)
     if response.status_code == 200:
-        return templates.TemplateResponse("index.html", {"request": request, "message": "Feedback submitted successfully"})
+        data = {}  # Инициализация пустого словаря для данных
+        return templates.TemplateResponse("index.html", {"request": request, "data": data, "message": "Feedback submitted successfully"})
     else:
         raise HTTPException(status_code=response.status_code, detail=response.text)
