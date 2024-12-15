@@ -6,10 +6,10 @@
 #pip install pymongo
 
 # Запуск сервера Uvicorn с автоматической перезагрузкой при изменении кода
-#uvicorn main:app --reload
+#uvicorn main:app --port 8000 --reload
 
 
-from fastapi import FastAPI, Request, Form
+from fastapi import FastAPI, Request, Form, HTTPException
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from database import db
@@ -17,7 +17,7 @@ from db_models import RequestLog
 from models import predict_obesity_wrapper
 import logging
 import copy
-
+import requests
 
 # Настройка логгера
 logging.basicConfig(level=logging.INFO)
@@ -31,14 +31,14 @@ templates = Jinja2Templates(directory="templates")  # Настройка шаб�
 async def read_root(request: Request):
     data = {}  # Инициализация пустого словаря для данных
     # Запись лога в MongoDB
-    log_entry = RequestLog(
-        method=request.method,  # Метод запроса
-        url=str(request.url),  # URL запроса
-        ip=str(request.client.host),  # IP-адрес клиента
-        data=data  # Данные запроса
-    )
-    result = db.request_logs.insert_one(log_entry.to_dict())  # Вставка записи в MongoDB
-    logger.info(f"Logged GET request to MongoDB: {log_entry.to_dict()} - Inserted ID: {result.inserted_id}")
+    # log_entry = RequestLog(
+    #     method=request.method,  # Метод запроса
+    #     url=str(request.url),  # URL запроса
+    #     ip=str(request.client.host),  # IP-адрес клиента
+    #     data=data  # Данные запроса
+    # )
+    #result = db.request_logs.insert_one(log_entry.to_dict())  # Вставка записи в MongoDB
+    #logger.info(f"Logged GET request to MongoDB: {log_entry.to_dict()} - Inserted ID: {result.inserted_id}")
 
     return templates.TemplateResponse("index.html", {"request": request, "data": data})
 
@@ -82,7 +82,14 @@ async def predict(
     }
 
     data_before = copy.deepcopy(data)
-    prediction = predict_obesity_wrapper(data)
+
+    # Отправка запроса к микросервису
+    response = requests.post("http://localhost:8001/predict", json=data)
+    if response.status_code == 200:
+        prediction = response.json().get("prediction")
+        prediction_id = response.json().get("prediction_id")
+    else:
+        raise HTTPException(status_code=response.status_code, detail=response.text)
 
     # Запись лога в MongoDB
     log_entry = RequestLog(
@@ -92,8 +99,26 @@ async def predict(
         data=data_before  # Данные запроса
     )
 
-    log_entry.prediction = prediction  # Добавляем поле с предсказанием в лог
-    result = db.request_logs.insert_one(log_entry.to_dict())  # Вставка записи в MongoDB
-    logger.info(f"Logged POST request with prediction to MongoDB: {log_entry.to_dict()} - Inserted ID: {result.inserted_id}")
+    #log_entry.prediction = prediction  # Добавляем поле с предсказанием в лог
+    #result = db.request_logs.insert_one(log_entry.to_dict())  # Вставка записи в MongoDB
+    #logger.info(f"Logged POST request with prediction to MongoDB: {log_entry.to_dict()} - Inserted ID: {result.inserted_id}")
 
-    return templates.TemplateResponse("index.html", {"request": request, "data": data_before, "prediction": prediction})
+    return templates.TemplateResponse("index.html", {"request": request, "data": data_before, "prediction": prediction, "prediction_id": prediction_id})
+
+
+@app.post("/feedback", response_class=HTMLResponse)
+async def feedback(
+    request: Request,
+    prediction_id: str = Form(...),  # Идентификатор предсказания
+    correct_answer: str = Form(...)  # Правильный ответ
+):
+    # Отправка обратной связи в микросервис
+    feedback_data = {
+        "prediction_id": prediction_id,
+        "correct_answer": correct_answer
+    }
+    response = requests.post("http://localhost:8001/feedback", json=feedback_data)
+    if response.status_code == 200:
+        return templates.TemplateResponse("index.html", {"request": request, "message": "Feedback submitted successfully"})
+    else:
+        raise HTTPException(status_code=response.status_code, detail=response.text)

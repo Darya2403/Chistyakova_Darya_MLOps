@@ -193,6 +193,21 @@
         <!-- Отображение результата прогноза -->
         {% if prediction %}
             <h2 id="result">{{ prediction }}</h2>
+            <!-- Форма для отправки обратной связи -->
+            <form action="/feedback" method="post">
+                <input type="hidden" name="prediction_id" value="{{ prediction_id }}">
+                <label for="correct_answer">Правильный ответ:</label>
+                <select name="correct_answer" id="correct_answer" required>
+                    <option value="Insufficient_Weight">Insufficient_Weight</option>
+                    <option value="Normal_Weight">Normal_Weight</option>
+                    <option value="Obesity_Type_I">Obesity_Type_I</option>
+                    <option value="Obesity_Type_II">Obesity_Type_II</option>
+                    <option value="Obesity_Type_III">Obesity_Type_III</option>
+                    <option value="Overweight_Level_I">Overweight_Level_I</option>
+                    <option value="Overweight_Level_II">Overweight_Level_II</option>
+                </select>
+                <input type="submit" value="Отправить обратную связь">
+            </form>
         {% endif %}
 
     </div>
