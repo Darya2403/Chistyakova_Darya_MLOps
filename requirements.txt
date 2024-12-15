@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+jinja2
+aiofiles
+python-multipart
+pymongo
+motor
+numpy
+requests
+joblib
+pandas
+scikit-learn==1.5.2

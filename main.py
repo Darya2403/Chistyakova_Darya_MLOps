@@ -1,11 +1,3 @@
-# Установка необходимых библиотек
-#pip install fastapi uvicorn
-#pip install jinja2
-#pip install aiofiles
-#pip install python-multipart
-#pip install pymongo
-#pip install motor
-
 # Запуск сервера Uvicorn с автоматической перезагрузкой при изменении кода
 #uvicorn main:app --port 8000 --reload
 
@@ -13,9 +5,6 @@
 from fastapi import FastAPI, Request, Form, HTTPException
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
-from database import db
-from db_models import RequestLog
-from models import predict_obesity_wrapper
 import logging
 import copy
 import requests

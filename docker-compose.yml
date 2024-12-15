@@ -1,0 +1,51 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile.main
+    ports:
+      - "8000:8000"
+    depends_on:
+      - models
+      - mongo
+    networks:
+      - mynetwork
+
+  models:
+    build:
+      context: .
+      dockerfile: Dockerfile.models
+    ports:
+      - "8001:8001"
+    depends_on:
+      - mongo
+    networks:
+      - mynetwork
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - mynetwork
+    volumes:
+      - mongo-data:/data/db
+
+  mongo-init:
+    image: mongo:latest
+    command: >
+      bash -c "
+      mongo --host mongo:27017 --eval 'db.createUser({user:\"admin\", pwd:\"admin\", roles:[{role:\"root\", db:\"admin\"}]});
+      mongo --host mongo:27017 --eval 'db = db.getSiblingDB(\"Chistyakova_Darya_MLOps\"); db.createCollection(\"request_logs\");';
+      "
+    depends_on:
+      - mongo
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
+
+volumes:
+  mongo-data:

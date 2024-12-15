@@ -3,16 +3,13 @@
 
 import numpy as np
 import joblib
-from sklearn.preprocessing import LabelEncoder
 import pandas as pd
-import json
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import logging
 import uuid
 from db_models import RequestLog
 from database import db
-from motor.motor_asyncio import AsyncIOMotorClient
 
 # Настройка логгера
 logging.basicConfig(level=logging.INFO)
