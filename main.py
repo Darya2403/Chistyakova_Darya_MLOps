@@ -14,7 +14,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from database import db
 from db_models import RequestLog
-from models import predict_obesity
+from models import predict_obesity_wrapper
 import logging
 import copy
 
@@ -82,7 +82,7 @@ async def predict(
     }
 
     data_before = copy.deepcopy(data)
-    prediction = predict_obesity(data)
+    prediction = predict_obesity_wrapper(data)
 
     # Запись лога в MongoDB
     log_entry = RequestLog(

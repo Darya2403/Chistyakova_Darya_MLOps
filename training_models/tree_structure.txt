@@ -1,0 +1,1777 @@
+Number of nodes: 177
+Number of features: 16
+Number of classes: [7]
+Feature names: Age, Gender, Height, Weight, CALC, FAVC, FCVC, NCP, SCC, SMOKE, CH2O, family_history_with_overweight, FAF, TUE, CAEC, MTRANS
+Class names: 0, 1, 2, 3, 4, 5, 6
+
+Nodes:
+Node 0:
+  Feature: Weight
+  Threshold: 99.55999755859375
+  Impurity: 0.8559258036948273
+  Number of samples: 1666
+  Weighted number of samples: 1666.0
+  Left child: 1
+  Right child: 154
+  Value: [[0.13085234093637454, 0.13445378151260504, 0.16566626650660263, 0.13745498199279713, 0.1602641056422569, 0.13085234093637454, 0.1404561824729892]]
+
+Node 1:
+  Feature: Weight
+  Threshold: 60.05999946594238
+  Impurity: 0.8010591862275267
+  Number of samples: 1086
+  Weighted number of samples: 1086.0
+  Left child: 2
+  Right child: 41
+  Value: [[0.2007366482504604, 0.20626151012891344, 0.17587476979742173, 0.004604051565377533, 0.0, 0.2007366482504604, 0.21178637200736647]]
+
+Node 2:
+  Feature: Height
+  Threshold: 1.6649999618530273
+  Impurity: 0.4757208448117539
+  Number of samples: 330
+  Weighted number of samples: 330.0
+  Left child: 3
+  Right child: 26
+  Value: [[0.6424242424242425, 0.3333333333333333, 0.0, 0.0, 0.0, 0.021212121212121213, 0.0030303030303030303]]
+
+Node 3:
+  Feature: Weight
+  Threshold: 46.829999923706055
+  Impurity: 0.5361863190989287
+  Number of samples: 181
+  Weighted number of samples: 181.0
+  Left child: 4
+  Right child: 9
+  Value: [[0.425414364640884, 0.5303867403314917, 0.0, 0.0, 0.0, 0.03867403314917127, 0.0055248618784530384]]
+
+Node 4:
+  Feature: Weight
+  Threshold: 44.92499923706055
+  Impurity: 0.12600438276113957
+  Number of samples: 74
+  Weighted number of samples: 74.0
+  Left child: 5
+  Right child: 6
+  Value: [[0.9324324324324325, 0.06756756756756757, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 5:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 59
+  Weighted number of samples: 59.0
+  Left child: -1
+  Right child: -1
+  Value: [[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 6:
+  Feature: Height
+  Threshold: 1.5799999833106995
+  Impurity: 0.4444444444444444
+  Number of samples: 15
+  Weighted number of samples: 15.0
+  Left child: 7
+  Right child: 8
+  Value: [[0.6666666666666666, 0.3333333333333333, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 7:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 5
+  Weighted number of samples: 5.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 8:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 10
+  Weighted number of samples: 10.0
+  Left child: -1
+  Right child: -1
+  Value: [[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 9:
+  Feature: Height
+  Threshold: 1.524999976158142
+  Impurity: 0.2667481876146388
+  Number of samples: 107
+  Weighted number of samples: 107.0
+  Left child: 10
+  Right child: 17
+  Value: [[0.07476635514018691, 0.8504672897196262, 0.0, 0.0, 0.0, 0.06542056074766354, 0.009345794392523364]]
+
+Node 10:
+  Feature: Age
+  Threshold: 18.5
+  Impurity: 0.5619834710743802
+  Number of samples: 11
+  Weighted number of samples: 11.0
+  Left child: 11
+  Right child: 12
+  Value: [[0.0, 0.36363636363636365, 0.0, 0.0, 0.0, 0.5454545454545454, 0.09090909090909091]]
+
+Node 11:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 4
+  Weighted number of samples: 4.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 12:
+  Feature: Weight
+  Threshold: 57.5
+  Impurity: 0.5714285714285714
+  Number of samples: 7
+  Weighted number of samples: 7.0
+  Left child: 13
+  Right child: 14
+  Value: [[0.0, 0.5714285714285714, 0.0, 0.0, 0.0, 0.2857142857142857, 0.14285714285714285]]
+
+Node 13:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 4
+  Weighted number of samples: 4.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 14:
+  Feature: CAEC
+  Threshold: 1.5
+  Impurity: 0.4444444444444444
+  Number of samples: 3
+  Weighted number of samples: 3.0
+  Left child: 15
+  Right child: 16
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.6666666666666666, 0.3333333333333333]]
+
+Node 15:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 2
+  Weighted number of samples: 2.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 16:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]
+
+Node 17:
+  Feature: Weight
+  Threshold: 50.709999084472656
+  Impurity: 0.17165798611111116
+  Number of samples: 96
+  Weighted number of samples: 96.0
+  Left child: 18
+  Right child: 21
+  Value: [[0.08333333333333333, 0.90625, 0.0, 0.0, 0.0, 0.010416666666666666, 0.0]]
+
+Node 18:
+  Feature: Height
+  Threshold: 1.6050000190734863
+  Impurity: 0.4444444444444444
+  Number of samples: 24
+  Weighted number of samples: 24.0
+  Left child: 19
+  Right child: 20
+  Value: [[0.3333333333333333, 0.6666666666666666, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 19:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 16
+  Weighted number of samples: 16.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 20:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 8
+  Weighted number of samples: 8.0
+  Left child: -1
+  Right child: -1
+  Value: [[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 21:
+  Feature: Age
+  Threshold: 17.5
+  Impurity: 0.027391975308642014
+  Number of samples: 72
+  Weighted number of samples: 72.0
+  Left child: 22
+  Right child: 25
+  Value: [[0.0, 0.9861111111111112, 0.0, 0.0, 0.0, 0.013888888888888888, 0.0]]
+
+Node 22:
+  Feature: SCC
+  Threshold: 0.5
+  Impurity: 0.21875
+  Number of samples: 8
+  Weighted number of samples: 8.0
+  Left child: 23
+  Right child: 24
+  Value: [[0.0, 0.875, 0.0, 0.0, 0.0, 0.125, 0.0]]
+
+Node 23:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 7
+  Weighted number of samples: 7.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 24:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 25:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 64
+  Weighted number of samples: 64.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 26:
+  Feature: Weight
+  Threshold: 59.9950008392334
+  Impurity: 0.17026260078374844
+  Number of samples: 149
+  Weighted number of samples: 149.0
+  Left child: 27
+  Right child: 38
+  Value: [[0.9060402684563759, 0.09395973154362416, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 27:
+  Feature: SCC
+  Threshold: 0.5
+  Impurity: 0.08493827160493828
+  Number of samples: 135
+  Weighted number of samples: 135.0
+  Left child: 28
+  Right child: 37
+  Value: [[0.9555555555555556, 0.044444444444444446, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 28:
+  Feature: FAF
+  Threshold: 2.5
+  Impurity: 0.07184228113165514
+  Number of samples: 134
+  Weighted number of samples: 134.0
+  Left child: 29
+  Right child: 34
+  Value: [[0.9626865671641791, 0.03731343283582089, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 29:
+  Feature: Weight
+  Threshold: 54.9950008392334
+  Impurity: 0.046485260770975034
+  Number of samples: 126
+  Weighted number of samples: 126.0
+  Left child: 30
+  Right child: 31
+  Value: [[0.9761904761904762, 0.023809523809523808, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 30:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 86
+  Weighted number of samples: 86.0
+  Left child: -1
+  Right child: -1
+  Value: [[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 31:
+  Feature: Height
+  Threshold: 1.7450000047683716
+  Impurity: 0.13875000000000004
+  Number of samples: 40
+  Weighted number of samples: 40.0
+  Left child: 32
+  Right child: 33
+  Value: [[0.925, 0.075, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 32:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 3
+  Weighted number of samples: 3.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 33:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 37
+  Weighted number of samples: 37.0
+  Left child: -1
+  Right child: -1
+  Value: [[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 34:
+  Feature: Height
+  Threshold: 1.7200000286102295
+  Impurity: 0.375
+  Number of samples: 8
+  Weighted number of samples: 8.0
+  Left child: 35
+  Right child: 36
+  Value: [[0.75, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 35:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 2
+  Weighted number of samples: 2.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 36:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 6
+  Weighted number of samples: 6.0
+  Left child: -1
+  Right child: -1
+  Value: [[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 37:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 38:
+  Feature: Height
+  Threshold: 1.8199999928474426
+  Impurity: 0.4897959183673469
+  Number of samples: 14
+  Weighted number of samples: 14.0
+  Left child: 39
+  Right child: 40
+  Value: [[0.42857142857142855, 0.5714285714285714, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 39:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 8
+  Weighted number of samples: 8.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 40:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 6
+  Weighted number of samples: 6.0
+  Left child: -1
+  Right child: -1
+  Value: [[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 41:
+  Feature: Weight
+  Threshold: 76.04000091552734
+  Impurity: 0.7436731894403852
+  Number of samples: 756
+  Weighted number of samples: 756.0
+  Left child: 42
+  Right child: 91
+  Value: [[0.007936507936507936, 0.15079365079365079, 0.2526455026455027, 0.006613756613756613, 0.0, 0.2791005291005291, 0.3029100529100529]]
+
+Node 42:
+  Feature: Height
+  Threshold: 1.6449999809265137
+  Impurity: 0.6220934133022045
+  Number of samples: 273
+  Weighted number of samples: 273.0
+  Left child: 43
+  Right child: 68
+  Value: [[0.02197802197802198, 0.3663003663003663, 0.007326007326007326, 0.0, 0.0, 0.47619047619047616, 0.1282051282051282]]
+
+Node 43:
+  Feature: FAVC
+  Threshold: 0.5
+  Impurity: 0.5202103001865566
+  Number of samples: 133
+  Weighted number of samples: 133.0
+  Left child: 44
+  Right child: 53
+  Value: [[0.0, 0.09774436090225563, 0.015037593984962405, 0.0, 0.0, 0.6390977443609023, 0.24812030075187969]]
+
+Node 44:
+  Feature: Height
+  Threshold: 1.5950000286102295
+  Impurity: 0.35941043083900226
+  Number of samples: 42
+  Weighted number of samples: 42.0
+  Left child: 45
+  Right child: 48
+  Value: [[0.0, 0.11904761904761904, 0.0, 0.0, 0.0, 0.09523809523809523, 0.7857142857142857]]
+
+Node 45:
+  Feature: Age
+  Threshold: 35.5
+  Impurity: 0.06444444444444442
+  Number of samples: 30
+  Weighted number of samples: 30.0
+  Left child: 46
+  Right child: 47
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.03333333333333333, 0.9666666666666667]]
+
+Node 46:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 29
+  Weighted number of samples: 29.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]
+
+Node 47:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 48:
+  Feature: Weight
+  Threshold: 66.0
+  Impurity: 0.6527777777777778
+  Number of samples: 12
+  Weighted number of samples: 12.0
+  Left child: 49
+  Right child: 50
+  Value: [[0.0, 0.4166666666666667, 0.0, 0.0, 0.0, 0.25, 0.3333333333333333]]
+
+Node 49:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 5
+  Weighted number of samples: 5.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 50:
+  Feature: Weight
+  Threshold: 70.05500030517578
+  Impurity: 0.4897959183673469
+  Number of samples: 7
+  Weighted number of samples: 7.0
+  Left child: 51
+  Right child: 52
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.42857142857142855, 0.5714285714285714]]
+
+Node 51:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 3
+  Weighted number of samples: 3.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 52:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 4
+  Weighted number of samples: 4.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]
+
+Node 53:
+  Feature: CAEC
+  Threshold: 1.5
+  Impurity: 0.1994928148774303
+  Number of samples: 91
+  Weighted number of samples: 91.0
+  Left child: 54
+  Right child: 57
+  Value: [[0.0, 0.08791208791208792, 0.02197802197802198, 0.0, 0.0, 0.8901098901098901, 0.0]]
+
+Node 54:
+  Feature: SCC
+  Threshold: 0.5
+  Impurity: 0.31999999999999995
+  Number of samples: 5
+  Weighted number of samples: 5.0
+  Left child: 55
+  Right child: 56
+  Value: [[0.0, 0.8, 0.0, 0.0, 0.0, 0.2, 0.0]]
+
+Node 55:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 4
+  Weighted number of samples: 4.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 56:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 57:
+  Feature: Weight
+  Threshold: 72.63999938964844
+  Impurity: 0.13196322336398048
+  Number of samples: 86
+  Weighted number of samples: 86.0
+  Left child: 58
+  Right child: 67
+  Value: [[0.0, 0.046511627906976744, 0.023255813953488372, 0.0, 0.0, 0.9302325581395349, 0.0]]
+
+Node 58:
+  Feature: Weight
+  Threshold: 62.10499954223633
+  Impurity: 0.09070294784580502
+  Number of samples: 84
+  Weighted number of samples: 84.0
+  Left child: 59
+  Right child: 62
+  Value: [[0.0, 0.047619047619047616, 0.0, 0.0, 0.0, 0.9523809523809523, 0.0]]
+
+Node 59:
+  Feature: FCVC
+  Threshold: 2.5
+  Impurity: 0.48
+  Number of samples: 5
+  Weighted number of samples: 5.0
+  Left child: 60
+  Right child: 61
+  Value: [[0.0, 0.4, 0.0, 0.0, 0.0, 0.6, 0.0]]
+
+Node 60:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 2
+  Weighted number of samples: 2.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 61:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 3
+  Weighted number of samples: 3.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 62:
+  Feature: Height
+  Threshold: 1.625
+  Impurity: 0.04935106553436952
+  Number of samples: 79
+  Weighted number of samples: 79.0
+  Left child: 63
+  Right child: 64
+  Value: [[0.0, 0.02531645569620253, 0.0, 0.0, 0.0, 0.9746835443037974, 0.0]]
+
+Node 63:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 65
+  Weighted number of samples: 65.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 64:
+  Feature: Weight
+  Threshold: 66.22000122070312
+  Impurity: 0.24489795918367352
+  Number of samples: 14
+  Weighted number of samples: 14.0
+  Left child: 65
+  Right child: 66
+  Value: [[0.0, 0.14285714285714285, 0.0, 0.0, 0.0, 0.8571428571428571, 0.0]]
+
+Node 65:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 2
+  Weighted number of samples: 2.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 66:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 12
+  Weighted number of samples: 12.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 67:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 2
+  Weighted number of samples: 2.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 68:
+  Feature: Weight
+  Threshold: 72.375
+  Impurity: 0.5084693877551021
+  Number of samples: 140
+  Weighted number of samples: 140.0
+  Left child: 69
+  Right child: 82
+  Value: [[0.04285714285714286, 0.6214285714285714, 0.0, 0.0, 0.0, 0.32142857142857145, 0.014285714285714285]]
+
+Node 69:
+  Feature: Height
+  Threshold: 1.840000033378601
+  Impurity: 0.24732461355529134
+  Number of samples: 87
+  Weighted number of samples: 87.0
+  Left child: 70
+  Right child: 79
+  Value: [[0.06896551724137931, 0.8620689655172413, 0.0, 0.0, 0.0, 0.06896551724137931, 0.0]]
+
+Node 70:
+  Feature: Height
+  Threshold: 1.6649999618530273
+  Impurity: 0.14370045538876708
+  Number of samples: 77
+  Weighted number of samples: 77.0
+  Left child: 71
+  Right child: 74
+  Value: [[0.0, 0.922077922077922, 0.0, 0.0, 0.0, 0.07792207792207792, 0.0]]
+
+Node 71:
+  Feature: Weight
+  Threshold: 68.40999984741211
+  Impurity: 0.4152249134948097
+  Number of samples: 17
+  Weighted number of samples: 17.0
+  Left child: 72
+  Right child: 73
+  Value: [[0.0, 0.7058823529411765, 0.0, 0.0, 0.0, 0.29411764705882354, 0.0]]
+
+Node 72:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 12
+  Weighted number of samples: 12.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 73:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 5
+  Weighted number of samples: 5.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 74:
+  Feature: Age
+  Threshold: 30.0
+  Impurity: 0.032777777777777795
+  Number of samples: 60
+  Weighted number of samples: 60.0
+  Left child: 75
+  Right child: 76
+  Value: [[0.0, 0.9833333333333333, 0.0, 0.0, 0.0, 0.016666666666666666, 0.0]]
+
+Node 75:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 57
+  Weighted number of samples: 57.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 76:
+  Feature: CH2O
+  Threshold: 1.5
+  Impurity: 0.4444444444444444
+  Number of samples: 3
+  Weighted number of samples: 3.0
+  Left child: 77
+  Right child: 78
+  Value: [[0.0, 0.6666666666666666, 0.0, 0.0, 0.0, 0.3333333333333333, 0.0]]
+
+Node 77:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 78:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 2
+  Weighted number of samples: 2.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 79:
+  Feature: Weight
+  Threshold: 65.5
+  Impurity: 0.48
+  Number of samples: 10
+  Weighted number of samples: 10.0
+  Left child: 80
+  Right child: 81
+  Value: [[0.6, 0.4, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 80:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 6
+  Weighted number of samples: 6.0
+  Left child: -1
+  Right child: -1
+  Value: [[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 81:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 4
+  Weighted number of samples: 4.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 82:
+  Feature: Height
+  Threshold: 1.7350000143051147
+  Impurity: 0.40583837664649336
+  Number of samples: 53
+  Weighted number of samples: 53.0
+  Left child: 83
+  Right child: 88
+  Value: [[0.0, 0.22641509433962265, 0.0, 0.0, 0.0, 0.7358490566037735, 0.03773584905660377]]
+
+Node 83:
+  Feature: Age
+  Threshold: 20.5
+  Impurity: 0.09499999999999997
+  Number of samples: 40
+  Weighted number of samples: 40.0
+  Left child: 84
+  Right child: 87
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.95, 0.05]]
+
+Node 84:
+  Feature: NCP
+  Threshold: 2.5
+  Impurity: 0.48
+  Number of samples: 5
+  Weighted number of samples: 5.0
+  Left child: 85
+  Right child: 86
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.6, 0.4]]
+
+Node 85:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 2
+  Weighted number of samples: 2.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]
+
+Node 86:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 3
+  Weighted number of samples: 3.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 87:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 35
+  Weighted number of samples: 35.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 88:
+  Feature: TUE
+  Threshold: 1.5
+  Impurity: 0.14201183431952658
+  Number of samples: 13
+  Weighted number of samples: 13.0
+  Left child: 89
+  Right child: 90
+  Value: [[0.0, 0.9230769230769231, 0.0, 0.0, 0.0, 0.07692307692307693, 0.0]]
+
+Node 89:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 12
+  Weighted number of samples: 12.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 90:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 91:
+  Feature: Height
+  Threshold: 1.6749999523162842
+  Impurity: 0.6564818744132814
+  Number of samples: 483
+  Weighted number of samples: 483.0
+  Left child: 92
+  Right child: 105
+  Value: [[0.0, 0.028985507246376812, 0.391304347826087, 0.010351966873706004, 0.0, 0.16770186335403728, 0.40165631469979296]]
+
+Node 92:
+  Feature: Weight
+  Threshold: 81.02499771118164
+  Impurity: 0.33508611492150586
+  Number of samples: 162
+  Weighted number of samples: 162.0
+  Left child: 93
+  Right child: 100
+  Value: [[0.0, 0.0, 0.7962962962962963, 0.030864197530864196, 0.0, 0.0, 0.1728395061728395]]
+
+Node 93:
+  Feature: Height
+  Threshold: 1.625
+  Impurity: 0.4728842184274723
+  Number of samples: 73
+  Weighted number of samples: 73.0
+  Left child: 94
+  Right child: 95
+  Value: [[0.0, 0.0, 0.6164383561643836, 0.0, 0.0, 0.0, 0.3835616438356164]]
+
+Node 94:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 44
+  Weighted number of samples: 44.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 95:
+  Feature: Height
+  Threshold: 1.6349999904632568
+  Impurity: 0.06658739595719376
+  Number of samples: 29
+  Weighted number of samples: 29.0
+  Left child: 96
+  Right child: 99
+  Value: [[0.0, 0.0, 0.034482758620689655, 0.0, 0.0, 0.0, 0.9655172413793104]]
+
+Node 96:
+  Feature: Weight
+  Threshold: 78.93000030517578
+  Impurity: 0.4444444444444444
+  Number of samples: 3
+  Weighted number of samples: 3.0
+  Left child: 97
+  Right child: 98
+  Value: [[0.0, 0.0, 0.3333333333333333, 0.0, 0.0, 0.0, 0.6666666666666666]]
+
+Node 97:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 2
+  Weighted number of samples: 2.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]
+
+Node 98:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 99:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 26
+  Weighted number of samples: 26.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]
+
+Node 100:
+  Feature: Weight
+  Threshold: 96.29000091552734
+  Impurity: 0.10604721626057312
+  Number of samples: 89
+  Weighted number of samples: 89.0
+  Left child: 101
+  Right child: 104
+  Value: [[0.0, 0.0, 0.9438202247191011, 0.056179775280898875, 0.0, 0.0, 0.0]]
+
+Node 101:
+  Feature: NCP
+  Threshold: 3.5
+  Impurity: 0.02325259515570932
+  Number of samples: 85
+  Weighted number of samples: 85.0
+  Left child: 102
+  Right child: 103
+  Value: [[0.0, 0.0, 0.9882352941176471, 0.011764705882352941, 0.0, 0.0, 0.0]]
+
+Node 102:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 84
+  Weighted number of samples: 84.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 103:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0]]
+
+Node 104:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 4
+  Weighted number of samples: 4.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0]]
+
+Node 105:
+  Feature: Weight
+  Threshold: 89.92500305175781
+  Impurity: 0.6320590832775304
+  Number of samples: 321
+  Weighted number of samples: 321.0
+  Left child: 106
+  Right child: 141
+  Value: [[0.0, 0.04361370716510903, 0.18691588785046728, 0.0, 0.0, 0.2523364485981308, 0.5171339563862928]]
+
+Node 106:
+  Feature: Height
+  Threshold: 1.7450000047683716
+  Impurity: 0.5348997646294944
+  Number of samples: 222
+  Weighted number of samples: 222.0
+  Left child: 107
+  Right child: 120
+  Value: [[0.0, 0.06306306306306306, 0.0045045045045045045, 0.0, 0.0, 0.35135135135135137, 0.581081081081081]]
+
+Node 107:
+  Feature: Height
+  Threshold: 1.725000023841858
+  Impurity: 0.1554720936326317
+  Number of samples: 107
+  Weighted number of samples: 107.0
+  Left child: 108
+  Right child: 115
+  Value: [[0.0, 0.0, 0.009345794392523364, 0.0, 0.0, 0.07476635514018691, 0.9158878504672897]]
+
+Node 108:
+  Feature: Age
+  Threshold: 49.0
+  Impurity: 0.045184304399524367
+  Number of samples: 87
+  Weighted number of samples: 87.0
+  Left child: 109
+  Right child: 114
+  Value: [[0.0, 0.0, 0.011494252873563218, 0.0, 0.0, 0.011494252873563218, 0.9770114942528736]]
+
+Node 109:
+  Feature: FAF
+  Threshold: 2.5
+  Impurity: 0.02298539751216877
+  Number of samples: 86
+  Weighted number of samples: 86.0
+  Left child: 110
+  Right child: 111
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.011627906976744186, 0.9883720930232558]]
+
+Node 110:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 80
+  Weighted number of samples: 80.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]
+
+Node 111:
+  Feature: Gender
+  Threshold: 0.5
+  Impurity: 0.2777777777777778
+  Number of samples: 6
+  Weighted number of samples: 6.0
+  Left child: 112
+  Right child: 113
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.16666666666666666, 0.8333333333333334]]
+
+Node 112:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 113:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 5
+  Weighted number of samples: 5.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]
+
+Node 114:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 115:
+  Feature: Gender
+  Threshold: 0.5
+  Impurity: 0.45499999999999996
+  Number of samples: 20
+  Weighted number of samples: 20.0
+  Left child: 116
+  Right child: 119
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.35, 0.65]]
+
+Node 116:
+  Feature: Age
+  Threshold: 41.5
+  Impurity: 0.21875
+  Number of samples: 8
+  Weighted number of samples: 8.0
+  Left child: 117
+  Right child: 118
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.875, 0.125]]
+
+Node 117:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 7
+  Weighted number of samples: 7.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 118:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]
+
+Node 119:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 12
+  Weighted number of samples: 12.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]
+
+Node 120:
+  Feature: Height
+  Threshold: 1.7949999570846558
+  Impurity: 0.5420037807183364
+  Number of samples: 115
+  Weighted number of samples: 115.0
+  Left child: 121
+  Right child: 132
+  Value: [[0.0, 0.12173913043478261, 0.0, 0.0, 0.0, 0.6086956521739131, 0.26956521739130435]]
+
+Node 121:
+  Feature: Weight
+  Threshold: 83.27000045776367
+  Impurity: 0.5119375573921028
+  Number of samples: 66
+  Weighted number of samples: 66.0
+  Left child: 122
+  Right child: 129
+  Value: [[0.0, 0.015151515151515152, 0.0, 0.0, 0.0, 0.5303030303030303, 0.45454545454545453]]
+
+Node 122:
+  Feature: Age
+  Threshold: 40.0
+  Impurity: 0.15586419753086422
+  Number of samples: 36
+  Weighted number of samples: 36.0
+  Left child: 123
+  Right child: 128
+  Value: [[0.0, 0.027777777777777776, 0.0, 0.0, 0.0, 0.9166666666666666, 0.05555555555555555]]
+
+Node 123:
+  Feature: Weight
+  Threshold: 78.1500015258789
+  Impurity: 0.05709342560553632
+  Number of samples: 34
+  Weighted number of samples: 34.0
+  Left child: 124
+  Right child: 127
+  Value: [[0.0, 0.029411764705882353, 0.0, 0.0, 0.0, 0.9705882352941176, 0.0]]
+
+Node 124:
+  Feature: Age
+  Threshold: 23.0
+  Impurity: 0.2777777777777778
+  Number of samples: 6
+  Weighted number of samples: 6.0
+  Left child: 125
+  Right child: 126
+  Value: [[0.0, 0.16666666666666666, 0.0, 0.0, 0.0, 0.8333333333333334, 0.0]]
+
+Node 125:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 5
+  Weighted number of samples: 5.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 126:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 127:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 28
+  Weighted number of samples: 28.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 128:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 2
+  Weighted number of samples: 2.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]
+
+Node 129:
+  Feature: NCP
+  Threshold: 3.5
+  Impurity: 0.12444444444444447
+  Number of samples: 30
+  Weighted number of samples: 30.0
+  Left child: 130
+  Right child: 131
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.06666666666666667, 0.9333333333333333]]
+
+Node 130:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 28
+  Weighted number of samples: 28.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]
+
+Node 131:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 2
+  Weighted number of samples: 2.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 132:
+  Feature: Weight
+  Threshold: 84.5
+  Impurity: 0.41899208663057064
+  Number of samples: 49
+  Weighted number of samples: 49.0
+  Left child: 133
+  Right child: 134
+  Value: [[0.0, 0.2653061224489796, 0.0, 0.0, 0.0, 0.7142857142857143, 0.02040816326530612]]
+
+Node 133:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 10
+  Weighted number of samples: 10.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 134:
+  Feature: CAEC
+  Threshold: 1.5
+  Impurity: 0.18803418803418803
+  Number of samples: 39
+  Weighted number of samples: 39.0
+  Left child: 135
+  Right child: 138
+  Value: [[0.0, 0.07692307692307693, 0.0, 0.0, 0.0, 0.8974358974358975, 0.02564102564102564]]
+
+Node 135:
+  Feature: Height
+  Threshold: 1.8450000286102295
+  Impurity: 0.375
+  Number of samples: 4
+  Weighted number of samples: 4.0
+  Left child: 136
+  Right child: 137
+  Value: [[0.0, 0.75, 0.0, 0.0, 0.0, 0.25, 0.0]]
+
+Node 136:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 137:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 3
+  Weighted number of samples: 3.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 138:
+  Feature: Weight
+  Threshold: 89.81000137329102
+  Impurity: 0.05551020408163265
+  Number of samples: 35
+  Weighted number of samples: 35.0
+  Left child: 139
+  Right child: 140
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.9714285714285714, 0.02857142857142857]]
+
+Node 139:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 34
+  Weighted number of samples: 34.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 140:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]
+
+Node 141:
+  Feature: Height
+  Threshold: 1.784999966621399
+  Impurity: 0.5042342618100194
+  Number of samples: 99
+  Weighted number of samples: 99.0
+  Left child: 142
+  Right child: 147
+  Value: [[0.0, 0.0, 0.5959595959595959, 0.0, 0.0, 0.030303030303030304, 0.37373737373737376]]
+
+Node 142:
+  Feature: Weight
+  Threshold: 90.0099983215332
+  Impurity: 0.03447214527546938
+  Number of samples: 57
+  Weighted number of samples: 57.0
+  Left child: 143
+  Right child: 146
+  Value: [[0.0, 0.0, 0.9824561403508771, 0.0, 0.0, 0.0, 0.017543859649122806]]
+
+Node 143:
+  Feature: Height
+  Threshold: 1.7350000143051147
+  Impurity: 0.21875
+  Number of samples: 8
+  Weighted number of samples: 8.0
+  Left child: 144
+  Right child: 145
+  Value: [[0.0, 0.0, 0.875, 0.0, 0.0, 0.0, 0.125]]
+
+Node 144:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 7
+  Weighted number of samples: 7.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 145:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]
+
+Node 146:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 49
+  Weighted number of samples: 49.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 147:
+  Feature: Height
+  Threshold: 1.8700000047683716
+  Impurity: 0.2551020408163265
+  Number of samples: 42
+  Weighted number of samples: 42.0
+  Left child: 148
+  Right child: 153
+  Value: [[0.0, 0.0, 0.07142857142857142, 0.0, 0.0, 0.07142857142857142, 0.8571428571428571]]
+
+Node 148:
+  Feature: Age
+  Threshold: 37.5
+  Impurity: 0.14201183431952658
+  Number of samples: 39
+  Weighted number of samples: 39.0
+  Left child: 149
+  Right child: 150
+  Value: [[0.0, 0.0, 0.07692307692307693, 0.0, 0.0, 0.0, 0.9230769230769231]]
+
+Node 149:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 33
+  Weighted number of samples: 33.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]
+
+Node 150:
+  Feature: Weight
+  Threshold: 95.0099983215332
+  Impurity: 0.5
+  Number of samples: 6
+  Weighted number of samples: 6.0
+  Left child: 151
+  Right child: 152
+  Value: [[0.0, 0.0, 0.5, 0.0, 0.0, 0.0, 0.5]]
+
+Node 151:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 3
+  Weighted number of samples: 3.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]
+
+Node 152:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 3
+  Weighted number of samples: 3.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 153:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 3
+  Weighted number of samples: 3.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0]]
+
+Node 154:
+  Feature: Gender
+  Threshold: 0.5
+  Impurity: 0.6174019024970274
+  Number of samples: 580
+  Weighted number of samples: 580.0
+  Left child: 155
+  Right child: 158
+  Value: [[0.0, 0.0, 0.14655172413793102, 0.38620689655172413, 0.4603448275862069, 0.0, 0.006896551724137931]]
+
+Node 155:
+  Feature: NCP
+  Threshold: 2.0
+  Impurity: 0.007434840721764258
+  Number of samples: 268
+  Weighted number of samples: 268.0
+  Left child: 156
+  Right child: 157
+  Value: [[0.0, 0.0, 0.0, 0.0037313432835820895, 0.996268656716418, 0.0, 0.0]]
+
+Node 156:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0]]
+
+Node 157:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 267
+  Weighted number of samples: 267.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0]]
+
+Node 158:
+  Feature: Age
+  Threshold: 22.5
+  Impurity: 0.41475591715976334
+  Number of samples: 312
+  Weighted number of samples: 312.0
+  Left child: 159
+  Right child: 168
+  Value: [[0.0, 0.0, 0.2724358974358974, 0.7147435897435898, 0.0, 0.0, 0.01282051282051282]]
+
+Node 159:
+  Feature: FCVC
+  Threshold: 2.5
+  Impurity: 0.3058181054400336
+  Number of samples: 69
+  Weighted number of samples: 69.0
+  Left child: 160
+  Right child: 165
+  Value: [[0.0, 0.0, 0.8115942028985508, 0.18840579710144928, 0.0, 0.0, 0.0]]
+
+Node 160:
+  Feature: Height
+  Threshold: 1.774999976158142
+  Impurity: 0.06771314250538629
+  Number of samples: 57
+  Weighted number of samples: 57.0
+  Left child: 161
+  Right child: 164
+  Value: [[0.0, 0.0, 0.9649122807017544, 0.03508771929824561, 0.0, 0.0, 0.0]]
+
+Node 161:
+  Feature: Weight
+  Threshold: 110.58000183105469
+  Impurity: 0.4444444444444444
+  Number of samples: 6
+  Weighted number of samples: 6.0
+  Left child: 162
+  Right child: 163
+  Value: [[0.0, 0.0, 0.6666666666666666, 0.3333333333333333, 0.0, 0.0, 0.0]]
+
+Node 162:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 4
+  Weighted number of samples: 4.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 163:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 2
+  Weighted number of samples: 2.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0]]
+
+Node 164:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 51
+  Weighted number of samples: 51.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 165:
+  Feature: CH2O
+  Threshold: 2.5
+  Impurity: 0.1527777777777778
+  Number of samples: 12
+  Weighted number of samples: 12.0
+  Left child: 166
+  Right child: 167
+  Value: [[0.0, 0.0, 0.08333333333333333, 0.9166666666666666, 0.0, 0.0, 0.0]]
+
+Node 166:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 11
+  Weighted number of samples: 11.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0]]
+
+Node 167:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 168:
+  Feature: Weight
+  Threshold: 109.68000030517578
+  Impurity: 0.23864925739639964
+  Number of samples: 243
+  Weighted number of samples: 243.0
+  Left child: 169
+  Right child: 176
+  Value: [[0.0, 0.0, 0.11934156378600823, 0.8641975308641975, 0.0, 0.0, 0.01646090534979424]]
+
+Node 169:
+  Feature: CALC
+  Threshold: 2.5
+  Impurity: 0.5497404844290658
+  Number of samples: 68
+  Weighted number of samples: 68.0
+  Left child: 170
+  Right child: 175
+  Value: [[0.0, 0.0, 0.4264705882352941, 0.5147058823529411, 0.0, 0.0, 0.058823529411764705]]
+
+Node 170:
+  Feature: Height
+  Threshold: 1.8650000095367432
+  Impurity: 0.25778546712802763
+  Number of samples: 34
+  Weighted number of samples: 34.0
+  Left child: 171
+  Right child: 174
+  Value: [[0.0, 0.0, 0.8529411764705882, 0.029411764705882353, 0.0, 0.0, 0.11764705882352941]]
+
+Node 171:
+  Feature: NCP
+  Threshold: 1.5
+  Impurity: 0.06444444444444442
+  Number of samples: 30
+  Weighted number of samples: 30.0
+  Left child: 172
+  Right child: 173
+  Value: [[0.0, 0.0, 0.9666666666666667, 0.03333333333333333, 0.0, 0.0, 0.0]]
+
+Node 172:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 1
+  Weighted number of samples: 1.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0]]
+
+Node 173:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 29
+  Weighted number of samples: 29.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0]]
+
+Node 174:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 4
+  Weighted number of samples: 4.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]
+
+Node 175:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 34
+  Weighted number of samples: 34.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0]]
+
+Node 176:
+  Feature: Leaf
+  Threshold: -2.0
+  Impurity: 0.0
+  Number of samples: 175
+  Weighted number of samples: 175.0
+  Left child: -1
+  Right child: -1
+  Value: [[0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0]]
+

@@ -1,0 +1,32 @@
+{
+    "cat_le_dict": {
+        "CALC": [
+            "Always",
+            "Frequently",
+            "Sometimes",
+            "no"
+        ],
+        "CAEC": [
+            "Always",
+            "Frequently",
+            "Sometimes",
+            "no"
+        ],
+        "MTRANS": [
+            "Automobile",
+            "Bike",
+            "Motorbike",
+            "Public_Transportation",
+            "Walking"
+        ]
+    },
+    "target_le": [
+        "Insufficient_Weight",
+        "Normal_Weight",
+        "Obesity_Type_I",
+        "Obesity_Type_II",
+        "Obesity_Type_III",
+        "Overweight_Level_I",
+        "Overweight_Level_II"
+    ]
+}
