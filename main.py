@@ -4,6 +4,7 @@
 #pip install aiofiles
 #pip install python-multipart
 #pip install pymongo
+#pip install motor
 
 # Запуск сервера Uvicorn с автоматической перезагрузкой при изменении кода
 #uvicorn main:app --port 8000 --reload

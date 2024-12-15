@@ -12,6 +12,7 @@ import logging
 import uuid
 from db_models import RequestLog
 from database import db
+from motor.motor_asyncio import AsyncIOMotorClient
 
 # Настройка логгера
 logging.basicConfig(level=logging.INFO)
@@ -173,6 +174,10 @@ def predict_obesity_wrapper(data):
     return predicted_class
 
 async def log_prediction(prediction_id, data, prediction):
+    # Преобразуем данные в стандартные типы Python
+    data = {k: (v.item() if isinstance(v, np.generic) else v) for k, v in data.items()}
+    prediction = prediction.item() if isinstance(prediction, np.generic) else prediction
+
     log_entry = RequestLog(
         method="POST",
         url="/predict",

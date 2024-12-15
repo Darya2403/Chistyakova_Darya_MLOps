@@ -1,8 +1,8 @@
-from pymongo import MongoClient
+from motor.motor_asyncio import AsyncIOMotorClient
 
 # Доступ к MongDB
 DATABASE_URL = "mongodb://localhost:27017/"
 DATABASE_NAME = "Chistyakova_Darya_MLOps"
 
-client = MongoClient(DATABASE_URL)
+client = AsyncIOMotorClient(DATABASE_URL)
 db = client[DATABASE_NAME]
