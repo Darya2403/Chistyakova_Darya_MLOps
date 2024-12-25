@@ -10,13 +10,18 @@ import logging
 import uuid
 from db_models import RequestLog
 from database import db
+import mlflow.pyfunc
 
 # Настройка логгера
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Загрузка модели
-model = joblib.load('training_models/random_forest_model.pkl')
+# model = joblib.load('training_models/random_forest_model.pkl')
+# Загрузка модели из MLflow
+model_uri = "models:/model/production"
+model = mlflow.pyfunc.load_model(model_uri)
+
 
 # Загрузка LabelEncoder для категориальных признаков
 cat_le_dict = joblib.load('training_models/category_label_encoder.pkl')

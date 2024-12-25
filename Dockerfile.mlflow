@@ -1,0 +1,5 @@
+FROM python:3.9-slim
+
+RUN pip install mlflow
+
+CMD ["mlflow", "server", "--backend-store-uri", "sqlite:///mlflow.db", "--default-artifact-root", "/mlflow/artifacts", "--host", "0.0.0.0"]

@@ -1,3 +1,4 @@
+version: '3'
 services:
   main:
     build:
@@ -6,21 +7,27 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - models
+      - modelling
       - mongo
     networks:
       - mynetwork
 
-  models:
+  modelling:
     build:
       context: .
-      dockerfile: Dockerfile.models
+      dockerfile: Dockerfile.modelling
     ports:
       - "8001:8001"
     depends_on:
       - mongo
+      - mlflow
+      - mlflow-serving
     networks:
       - mynetwork
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    volumes:
+      - mlflow-artifacts:/mlflow/artifacts
 
   mongo:
     image: mongo:latest
@@ -43,9 +50,36 @@ services:
     networks:
       - mynetwork
 
+  mlflow:
+    build:
+      context: .
+      dockerfile: Dockerfile.mlflow
+    ports:
+      - "5000:5000"
+    networks:
+      - mynetwork
+    volumes:
+      - mlflow-artifacts:/mlflow/artifacts
+
+  mlflow-serving:
+    build:
+      context: .
+      dockerfile: Dockerfile.mlflow-serving
+    ports:
+      - "1234:1234"
+    depends_on:
+      - mlflow
+    networks:
+      - mynetwork
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    volumes:
+      - mlflow-artifacts:/mlflow/artifacts
+
 networks:
   mynetwork:
     driver: bridge
 
 volumes:
   mongo-data:
+  mlflow-artifacts:

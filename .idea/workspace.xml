@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8400a50-a85b-478c-ac7a-aeccb37e87cb" name="Changes" comment="docker">
+    <list default="true" id="f8400a50-a85b-478c-ac7a-aeccb37e87cb" name="Changes" comment="docker fix mongo">
+      <change afterPath="$PROJECT_DIR$/Dockerfile.mlflow" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile.mlflow-serving" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/training_models/output.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/training_models/train_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile.main" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile.main" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile.models" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile.modelling" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/training_models/random_forest_model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/training_models/random_forest_model2.pkl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,9 +66,9 @@
       <recent name="C:\Users\Дарья\PycharmProjects\Chistyakova_Darya_MLOps\training_models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Дарья\PycharmProjects\Chistyakova_Darya_MLOps\training_models" />
       <recent name="C:\Users\Дарья\PycharmProjects\Chistyakova_Darya_MLOps" />
       <recent name="C:\Users\Дарья\PycharmProjects\Chistyakova_Darya_MLOps\models" />
-      <recent name="C:\Users\Дарья\PycharmProjects\Chistyakova_Darya_MLOps\training_models" />
       <recent name="C:\Users\Дарья\PycharmProjects\Chistyakova_Darya_MLOps\main" />
       <recent name="C:\Users\User\PycharmProjects\Chistyakova_Darya_MLOps\training_models" />
     </key>
@@ -214,7 +222,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734270048130</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="docker fix mongo">
+      <option name="closed" value="true" />
+      <created>1734271512479</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1734271512479</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -250,6 +266,7 @@
     <MESSAGE value="Инкапсуляция модели - fix logs" />
     <MESSAGE value="Инкапсуляция модели - feedback" />
     <MESSAGE value="docker" />
-    <option name="LAST_COMMIT_MESSAGE" value="docker" />
+    <MESSAGE value="docker fix mongo" />
+    <option name="LAST_COMMIT_MESSAGE" value="docker fix mongo" />
   </component>
 </project>

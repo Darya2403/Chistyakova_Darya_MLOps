@@ -74,7 +74,7 @@ async def predict(
     data_before = copy.deepcopy(data)
 
     # Отправка запроса к микросервису
-    response = requests.post("http://models:8001/predict", json=data)
+    response = requests.post("http://modelling:8001/predict", json=data)
     if response.status_code == 200:
         prediction = response.json().get("prediction")
         prediction_id = response.json().get("prediction_id")
@@ -107,7 +107,7 @@ async def feedback(
         "prediction_id": prediction_id,
         "correct_answer": correct_answer
     }
-    response = requests.post("http://models:8001/feedback", json=feedback_data)
+    response = requests.post("http://modelling:8001/feedback", json=feedback_data)
     if response.status_code == 200:
         data = {}  # Инициализация пустого словаря для данных
         return templates.TemplateResponse("index.html", {"request": request, "data": data, "message": "Feedback submitted successfully"})
