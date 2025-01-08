@@ -11,24 +11,50 @@ import uuid
 from db_models import RequestLog
 from database import db
 import mlflow.pyfunc
+from mlflow.tracking import MlflowClient
 
 # Настройка логгера
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Загрузка модели
-# model = joblib.load('training_models/random_forest_model.pkl')
-# Загрузка модели из MLflow
-model_uri = "models:/model/production"
-model = mlflow.pyfunc.load_model(model_uri)
+# Настройка MLflow
+mlflow.set_tracking_uri("http://mlflow:5000")
+client = MlflowClient(tracking_uri="http://mlflow:5000")
 
+# Загрузка модели из MLflow
+model_name = "example_model"
+try:
+    logger.info(f"Attempting to load model with name: {model_name}")
+    model_version = client.get_latest_versions(model_name, stages=["Production"])[0]
+    model_uri = f"models:/{model_name}/{model_version.version}"
+    logger.info(f"Loading model from URI: {model_uri}")
+    model = mlflow.pyfunc.load_model(model_uri)
+    logger.info(f"Model {model_name}/{model_version.version} loaded successfully.")
+except Exception as e:
+    logger.error(f"Error loading model: {e}")
+    model = None
+
+# Загрузка артефактов из MLflow
+try:
+    logger.info(f"Attempting to load artifacts for model version: {model_version.version}")
+    run_id = model_version.run_id
+    cat_le_dict_path = client.download_artifacts(run_id, "category_label_encoder.pkl")
+    target_le_path = client.download_artifacts(run_id, "target_label_encoder.pkl")
+
+    cat_le_dict = joblib.load(cat_le_dict_path)
+    target_le = joblib.load(target_le_path)
+    logger.info("Artifacts loaded successfully.")
+except Exception as e:
+    logger.error(f"Error loading artifacts: {e}")
+    cat_le_dict = None
+    target_le = None
 
 # Загрузка LabelEncoder для категориальных признаков
-cat_le_dict = joblib.load('training_models/category_label_encoder.pkl')
+# cat_le_dict = joblib.load('training_models/category_label_encoder.pkl')
 # print("Загруженный словарь энкодеров:")
 # print(cat_le_dict)
 
-target_le = joblib.load('training_models/target_label_encoder.pkl')
+# target_le = joblib.load('training_models/target_label_encoder.pkl')
 
 # Загрузка результатов энкодирования из текстового файла
 # with open('training_models/encoder_results.json', 'r') as f:
@@ -113,6 +139,8 @@ app = FastAPI()
 async def predict(request: PredictionRequest):
     data = request.dict()
     try:
+        if model is None:
+            raise ValueError("Model is not loaded.")
         prediction = predict_obesity_wrapper(data)
         prediction_id = str(uuid.uuid4())
         await log_prediction(prediction_id, data, prediction)
@@ -171,7 +199,7 @@ def predict_obesity_wrapper(data):
     # predicted_class = predict_obesity_wrapper(data)
     prediction = model.predict(features)
     #prediction = predict_obesity(data, tree_structure)
-    predicted_class = target_le.inverse_transform([prediction])[0]  # Преобразуем в исходную метку
+    predicted_class = target_le.inverse_transform(prediction.ravel())[0]  # Преобразуем в исходную метку
 
     return predicted_class
 
@@ -188,7 +216,7 @@ async def log_prediction(prediction_id, data, prediction):
         prediction_id=prediction_id
     )
     result = await db.request_logs.insert_one(log_entry.to_dict())  # Вставка записи в MongoDB
-    logger.info(f"Logged prediction: {log_entry.to_dict()} - Inserted ID: {result.inserted_id}")
+    logger.info(f"Logged prediction: {log_entry.to_dict()} ; Inserted ID: {result.inserted_id}")
 
 async def log_feedback(prediction_id, correct_answer):
     # Обновление записи в MongoDB

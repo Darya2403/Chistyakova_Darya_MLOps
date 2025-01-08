@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
   main:
     build:
@@ -10,7 +10,7 @@ services:
       - modelling
       - mongo
     networks:
-      - mynetwork
+      - chistyakova_darya_mlops_mynetwork
 
   modelling:
     build:
@@ -21,9 +21,8 @@ services:
     depends_on:
       - mongo
       - mlflow
-      - mlflow-serving
     networks:
-      - mynetwork
+      - chistyakova_darya_mlops_mynetwork
     environment:
       - MLFLOW_TRACKING_URI=http://mlflow:5000
     volumes:
@@ -34,7 +33,7 @@ services:
     ports:
       - "27018:27017"
     networks:
-      - mynetwork
+      - chistyakova_darya_mlops_mynetwork
     volumes:
       - mongo-data:/data/db
 
@@ -48,7 +47,7 @@ services:
     depends_on:
       - mongo
     networks:
-      - mynetwork
+      - chistyakova_darya_mlops_mynetwork
 
   mlflow:
     build:
@@ -57,28 +56,13 @@ services:
     ports:
       - "5000:5000"
     networks:
-      - mynetwork
-    volumes:
-      - mlflow-artifacts:/mlflow/artifacts
-
-  mlflow-serving:
-    build:
-      context: .
-      dockerfile: Dockerfile.mlflow-serving
-    ports:
-      - "1234:1234"
-    depends_on:
-      - mlflow
-    networks:
-      - mynetwork
-    environment:
-      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - chistyakova_darya_mlops_mynetwork
     volumes:
       - mlflow-artifacts:/mlflow/artifacts
 
 networks:
-  mynetwork:
-    driver: bridge
+  chistyakova_darya_mlops_mynetwork:
+    external: true
 
 volumes:
   mongo-data:

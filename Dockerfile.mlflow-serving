@@ -2,4 +2,4 @@ FROM python:3.8-slim
 
 RUN pip install mlflow
 
-CMD ["mlflow", "models", "serve", "-m", "models:/example_model/latest", "-h", "0.0.0.0", "-p", "1234"]
+CMD ["mlflow", "models", "serve", "--model-uri", "models:/example_model/production", "--host", "0.0.0.0", "--port", "1234"]

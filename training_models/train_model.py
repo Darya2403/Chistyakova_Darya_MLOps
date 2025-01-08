@@ -7,12 +7,56 @@ from sklearn.model_selection import train_test_split
 import joblib
 import pandas as pd
 import os
+from sklearn.preprocessing import LabelEncoder
 
 # Настройка MLflow
 mlflow.set_tracking_uri("http://localhost:5000")
 
 # Создание данных
-data = pd.read_csv('output.csv')
+data = pd.read_csv('ObesityDataSet_raw_and_data_sinthetic.csv')
+
+# Преобразуем категориальные признаки в числовые
+# Признак 'Gender' преобразуем вручную (Female -> 0, Male -> 1)
+data['Gender'] = data['Gender'].apply(lambda x: 0 if x == 'Female' else 1)
+
+# Признаки типа "yes" и "no" преобразуем так же вручную в 1 и 0
+binary_cols = ['SMOKE', 'family_history_with_overweight', 'SCC', 'FAVC']
+for col in binary_cols:
+    data[col] = data[col].apply(lambda x: 1 if x == 'yes' else 0)
+
+numerical_cols = ['FCVC', 'NCP', 'CH2O', 'FAF', 'TUE']
+
+# Установим границы для столбцов с ошибочными максимальными значениями
+max_values = {
+    'FCVC': 3.0,
+    'NCP': 4.0,
+    'CH2O': 3.0,
+    'FAF': 3.0,
+    'TUE': 2.0
+}
+# Идентифицируем строки с ошибочными значениями
+excluded_data = pd.DataFrame()
+
+for col in numerical_cols:
+    temp_data = data[data[col] > max_values[col]]
+    excluded_data = pd.concat([excluded_data, temp_data])
+
+# Удаляем выбросы
+data = data[~data.index.isin(excluded_data.index)]
+print(data[numerical_cols].min())
+print(data[numerical_cols].max())
+
+# Применение LabelEncoder к категориальным признакам
+cat_le_dict = {}
+label_cols = ['CALC', 'CAEC', 'MTRANS']
+for col in label_cols:
+    cat_le_dict[col] = LabelEncoder()
+    data[col] = cat_le_dict[col].fit_transform(data[col])
+
+# Применение LabelEncoder к целевой переменной
+target_le = LabelEncoder()
+data['NObeyesdad'] = target_le.fit_transform(data['NObeyesdad'])
+
 
 # Разделение данных на признаки и целевую переменную
 X = data.drop('NObeyesdad', axis=1)
@@ -26,7 +70,7 @@ y_train = y_train.ravel()
 y_test = y_test.ravel()
 
 # Обучение модели RandomForest
-model = RandomForestClassifier(random_state=42)
+model = RandomForestClassifier(random_state=45)
 model.fit(X_train, y_train)
 
 # Прогнозирование результатов
@@ -42,30 +86,36 @@ print(confusion_matrix(y_test, y_pred))
 
 # Логирование модели и артефактов в MLflow
 with mlflow.start_run() as run:
-    # Залогируйте модель
+    # модель
     mlflow.sklearn.log_model(model, "model")
     run_id = run.info.run_id
 
-    # Залогируйте метрики
+    # метрики
     mlflow.log_metric("accuracy", accuracy_score(y_test, y_pred))
 
-    # Залогируйте параметры
+    # параметры
     mlflow.log_param("n_estimators", model.n_estimators)
     mlflow.log_param("random_state", model.random_state)
 
-    # Логирование дополнительных артефактов
-    artifact_path = '/mlflow/artifacts/training_models'
+    # дополнительные артефакты
+    artifact_path = '/mlflow/artifacts'
     if not os.path.exists(artifact_path):
         os.makedirs(artifact_path)
     joblib.dump(model, os.path.join(artifact_path, 'random_forest_model.pkl'))
     mlflow.log_artifact(os.path.join(artifact_path, 'random_forest_model.pkl'))
 
-    # Создайте или обновите версию модели
+    # Сохранение LabelEncoder
+    joblib.dump(cat_le_dict, os.path.join(artifact_path, 'category_label_encoder.pkl'))
+    mlflow.log_artifact(os.path.join(artifact_path, 'category_label_encoder.pkl'))
+    joblib.dump(target_le, os.path.join(artifact_path, 'target_label_encoder.pkl'))
+    mlflow.log_artifact(os.path.join(artifact_path, 'target_label_encoder.pkl'))
+
+    # версия модели
     client = MlflowClient()
     model_uri = f"runs:/{run_id}/model"
     model_name = "example_model"
 
-    # Проверьте, существует ли модель
+    # существует ли модель
     try:
         client.get_registered_model(model_name)
         print(f"Model '{model_name}' already exists. Updating version...")
@@ -76,11 +126,11 @@ with mlflow.start_run() as run:
         else:
             raise e
 
-    # Создайте новую версию модели
-    result = client.create_model_version(model_name, model_uri, "None")
+    # новая версия модели
+    result = client.create_model_version(model_name, model_uri, run_id)
     print(f"Model version created: {result}")
 
-    # Переведите модель в стадию production
+    # переводим модель в стадию production
     client.transition_model_version_stage(
         name=model_name,
         version=result.version,
@@ -99,18 +149,3 @@ try:
         print(f"No model versions found in production for model '{model_name}'")
 except mlflow.exceptions.RestException as e:
     print(f"Error fetching model version: {e}")
-
-# Загрузите модель из MLflow
-model_uri = f"models:/{model_name}/production"
-try:
-    loaded_model = mlflow.pyfunc.load_model(model_uri)
-    print("Model loaded successfully.")
-except mlflow.exceptions.MlflowException as e:
-    print(f"Error loading model: {e}")
-
-# Проверьте загруженную модель
-if 'loaded_model' in locals():
-    test_predictions = loaded_model.predict(X_test)
-    print(f"Test predictions: {test_predictions}")
-else:
-    print("Model loading failed. Cannot make predictions.")
