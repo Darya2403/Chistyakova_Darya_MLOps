@@ -37,18 +37,6 @@ services:
     volumes:
       - mongo-data:/data/db
 
-  mongo-init:
-    image: mongo:latest
-    command: >
-      bash -c "
-      mongo --host mongo:27017 --eval 'db.createUser({user:\"admin\", pwd:\"admin\", roles:[{role:\"root\", db:\"admin\"}]});
-      mongo --host mongo:27017 --eval 'db = db.getSiblingDB(\"Chistyakova_Darya_MLOps\"); db.createCollection(\"request_logs\");';
-      "
-    depends_on:
-      - mongo
-    networks:
-      - chistyakova_darya_mlops_mynetwork
-
   mlflow:
     build:
       context: .
